@@ -1,12 +1,15 @@
+import TodoCollection from "./TodoCollection";
 import TodoItem from "./TodoItem";
+import { data } from "./data";
 
-const data = [
-    {id : 1, task : 'Buy Milk', isCompleted : true},
-    {id : 2, task : 'Pay Bills', isCompleted : false},
-]
+const sampleTodos : TodoItem[] = data.map(
+    (item) => new TodoItem(item.id, item.task, item.isCompleted)
+);
 
-console.log('My Todo List');
-for (let i = 0; i < data.length; i++) {
-    let todoItem = new TodoItem(data[i].id, data[i].task, data[i].isCompleted);
-    todoItem.printDetails();
-}
+const myTodoCollection = new TodoCollection("My Todo List", sampleTodos);
+myTodoCollection.addTodo("Learn TypeScript");
+myTodoCollection.addTodo("Hack CIA Database");
+myTodoCollection.markCompleted(4, true);
+
+console.log(`${myTodoCollection.userName}`);
+myTodoCollection.todoItems.forEach((item) => item.printDetails());

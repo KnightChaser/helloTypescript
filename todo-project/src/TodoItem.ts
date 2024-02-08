@@ -2,7 +2,7 @@ class TodoItem {
     // Build the constructor with the properties of the class
     constructor(public id : number, 
                 public task : string, 
-                public isCompleted : boolean) {
+                public isCompleted : boolean = false) {
         this.id = id;
         this.task = task;
         this.isCompleted = isCompleted;
