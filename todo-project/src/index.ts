@@ -12,4 +12,8 @@ myTodoCollection.addTodo("Hack CIA Database");
 myTodoCollection.markCompleted(4, true);
 
 console.log(`${myTodoCollection.userName}`);
-myTodoCollection.todoItems.forEach((item) => item.printDetails());
+myTodoCollection.removeComplete();
+console.log("====================================");
+myTodoCollection.getTodoItems(true).forEach((item) => item.printDetails());
+console.log("===================================="); 
+myTodoCollection.getTodoItems(false).forEach((item) => item.printDetails());
