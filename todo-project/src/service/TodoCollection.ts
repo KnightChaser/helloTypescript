@@ -1,4 +1,5 @@
-import TodoItem from "./TodoItem";
+import TodoItem from "../model/TodoItem";
+import { ItemCounts } from "../model/ItemCounts";
 
 class TodoCollection {
     private nextId : number = 1;
@@ -38,6 +39,14 @@ class TodoCollection {
                 this.itemMap.delete(item.id);
             }
         })
+    }
+
+    // Return the total number of TodoItem and the number of incompleted TodoItem
+    getItemCounts() : ItemCounts {
+        return {
+            total : this.itemMap.size,
+            incompleted : this.getTodoItems(false).length
+        }
     }
 
     // Mark the TodoItem as completed
